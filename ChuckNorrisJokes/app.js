@@ -10,7 +10,6 @@ const content = document.querySelector('.content');
 // * now we can take our button and add a click event where whenever it is pressed we will make an api call and display random jokes.
 
 btn.addEventListener('click', () => {
-  console.log('hello');
   getData(api_url);
 });
 
@@ -26,8 +25,13 @@ function getData(url) {
       console.log(xhr.responseText);
       //* if we get the proper response we can then convert it into JSon so that we can extract the value out, because our intial response is in a string format
       const response = JSON.parse(xhr.responseText);
-      console.log(response);
-    } else {
+
+      //* Once we get our response object we can destruct the "value" property and give it an alias of our liking or we can use dot notation on the response variable.
+      content.textContent = response.value;
+    }
+
+    // ** this final condition will catch anything else and console log it
+    else {
       console.log({
         status: xhr.status,
         text: xhr.statusText,
