@@ -25,9 +25,13 @@ buttons.forEach((btn) => {
     if (counter < 0) {
       number.style.color = 'red';
     }
-    if (counter >= 0) {
+    if (counter > 0) {
+      number.style.color = 'green';
+    }
+    if (counter == 0) {
       number.style.color = 'black';
     }
+
     number.innerHTML = counter;
   });
 });
