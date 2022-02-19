@@ -24,6 +24,9 @@ function getData(url) {
     if (xhr.readyState != 4) return;
     if (xhr.status === 200) {
       console.log(xhr.responseText);
+      //* if we get the proper response we can then convert it into JSon so that we can extract the value out, because our intial response is in a string format
+      const response = JSON.parse(xhr.responseText);
+      console.log(response);
     } else {
       console.log({
         status: xhr.status,
