@@ -12,19 +12,15 @@ const content = document.querySelector('.content');
 // * now we can take our button and add a click event where whenever it is pressed we will make an api call and display random jokes.
 
 btn.addEventListener('click', () => {
-  displayData(api_url);
+  fetch(api_url)
+    .then((response) => response.json())
+    .then((data) => (content.textContent = data.value))
+    .catch((err) => console.log(err));
 });
 
 // * this function is responsible for displaying the data we get back from the api
 
-// * Async await format
-
-displayData = async (url) => {
-  try {
-    let data = await fetch(url);
-    let response = await data.json();
-    content.textContent = response.value;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// function displayData(data) {
+//   const result = data;
+//   content.textContent = result.value;
+// }
