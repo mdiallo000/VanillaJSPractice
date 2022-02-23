@@ -7,4 +7,14 @@
 }
 
 .nav-container {
+  display: flex;
+  align-content: space-around;
+}
+.nav-logo {
+  display: inline-block;
+}
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
 }
